@@ -66,6 +66,13 @@ public class ABR{
         }
     }
 
+    //affichage parentheser de l'arbre
+    public void show_ABR(){
+        System.out.print("(");
+        show_prefixe();
+        System.out.print(")");
+    }
+
 
     //ajout d'un element dans un abr
     public ABR add(ABR a, int e){
@@ -148,4 +155,14 @@ public class ABR{
         }
     }
 
+    //Impleémentez une méthode pour tester si un arbre binaire donné, avec des va- leurs dans les nœuds, est un ABR.
+    public boolean is_ABR(ABR a, float min, float max){
+        if(empty(this)){
+            min = Float.POSITIVE_INFINITY;
+            max = Float.NEGATIVE_INFINITY;
+            return true;
+        }else{
+            return( is_ABR(a.FG,min, max) && is_ABR(a.FD, min, max) && a.elem >= max && a.elem <= min);
+        }
+    }
 }
